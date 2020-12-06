@@ -1,6 +1,6 @@
-weight, goal_of_prediction, input = (0.0, 0.8, 1.1)
+weight, goal_of_prediction, input = (0.0, 0.8, 2)
 
-for iteration in range(4):
+for iteration in range(10):
     print('----------\nWeight', weight)
     prediction = weight * input
     error = (prediction - goal_of_prediction)**2
