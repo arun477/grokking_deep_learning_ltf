@@ -5,22 +5,25 @@ def w_sum(input, weights):
         output += input[i] * weights[i]
     return output
 
+
 def elementwise_multiplication(number, vector):
     output = []
     for i in range(len(vector)):
-        output.append(vector[i]* number)
+        output.append(vector[i] * number)
     return output
+
 
 def neural_network(input, weights):
     prediction = elementwise_multiplication(input, weights)
     return prediction
 
-weights = [0.3, 0.2, 0.9,]
+
+weights = [0.3, 0.2, 0.9, ]
 alpha = 0.1
 wlrec = [0.65, 1.0, 1.0, 0.9]
 
 hurt = [0.1, 0.0, 0.0, 0.1]
-win = [ 1, 1, 0, 1]
+win = [1, 1, 0, 1]
 sad = [0.1, 0.0, 0.1, 0.2]
 
 true = [hurt[0], win[0], sad[0]]
