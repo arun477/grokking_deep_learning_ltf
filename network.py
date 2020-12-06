@@ -1,13 +1,16 @@
-import numpy as np
+def elementwise_multiplication(number, vector):
+    output = []
+    for i in range(len(vector)):
+        output.append(number * vector[i])
+    return output
 
-def neural_network(weights, inputs):
-    prediction  = inputs.dot(weights)
+def neural_network(weights, input):
+    prediction  = elementwise_multiplication(input, weights)
     return prediction
 
-toes = np.array([8.5, 9.5, 10, 9])
-wins_loss = np.array([0.65, 0.8, 0.75, 0.6])
-num_fans = np.array([1.2 , 1.1, 1.4, 5.3])
-weights = np.array([0.1, 0.2, 0])
-inputs = np.array([toes[0], wins_loss[0], num_fans[0]])
-prediction = neural_network(weights, inputs)
+weights = [0.3, 0.2, 0.9]
+wins_loss = [0.65, 0.8, 0.8, 0.9]
+
+input = wins_loss[0]
+prediction = neural_network(weights, input)
 print(prediction)
