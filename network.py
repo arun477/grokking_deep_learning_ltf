@@ -68,4 +68,4 @@ for iteration in range(5):
             for j in range(len(weights[0])):
                 weights[i][j] -= weight_deltas[i][j] * alpha
         print('---------\nError', str(errors), 'Prediction', prediction)
-        # print(weights)
+        print(weights)
