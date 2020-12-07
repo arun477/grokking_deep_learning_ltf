@@ -5,13 +5,6 @@ def w_sum(input, weights):
         output += input[i] * weights[i]
     return output
 
-def vect_mat_mul(vect, matrix):
-    assert(len(vect) == len(matrix))
-    output = []
-    for i in range(len(vect)):
-        output.append(w_sum(vect, matrix[i]))
-    return output
-
 def elementwise_multiplication(number, vector):
     output = []
     for i in range(len(vector)):
@@ -34,6 +27,12 @@ def outer_product(vec_a, vec_b):
             output[i][j] = vec_a[i] * vec_b[j]
     return output
 
+def vect_mat_mul(input, weights):
+    output = []
+    for i in range(len(weights)):
+        output.append(w_sum(input, weights[i]))
+    return output
+
 def neural_network(input, weights):
     prediction = vect_mat_mul(input, weights)
     return prediction
@@ -42,7 +41,7 @@ weights = [[0.1, 0.1, -0.3],
             [0.1, 0.2, 0.0],
             [0.0, 1.3, 0.1] ]
 
-alpha = 0.001
+alpha = 0.01
 
 toes = [8.5, 9.5, 9.9, 9.0]
 wlrec = [0.65,0.8, 0.8, 0.9]
@@ -63,9 +62,8 @@ for iteration in range(5):
             deltas.append(prediction[i] - true[i])
 
         weight_deltas = outer_product(input, deltas)
-
+        print(weight_deltas)
         for i in range(len(weights)):
             for j in range(len(weights[0])):
                 weights[i][j] -= weight_deltas[i][j] * alpha
-        print('---------\nError', str(errors), 'Prediction', prediction)
-        print(weights)
+        print('---------\nError', str(errors), '\nTrue', true, '\nPrediction', prediction)
