@@ -28,3 +28,4 @@ for iteration in range(20):
         weights_delta = inputs * delta
         weights = weights - (weights_delta * alpha)
     print('-----\nError Total', total_error)
+    print('weights', weights)
